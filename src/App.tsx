@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import './styles/main-page-style.css';
+import './styles/login-style.css';
+import MainPage from './components/MainPage';
+import Login from './components/Login';
+import NotFound from './components/NotFound';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+interface Props {
+    logged: boolean,
 }
 
-export default App;
+class App extends Component<Props> {
+    render() {
+        const { logged } = this.props;
+        console.log(logged);
+        return (
+                <Switch>
+                    <Route exact path='/home' component={ MainPage } />
+                    { logged === true && <Redirect to='/home' />}
+                    <Route exact path='/login' component={Login}/>
+                    <Redirect to='/login' />
+                    <Route path='*' component={NotFound} />
+                </Switch>
+        )
+    }
+}
+
+const mapStateToProps = (state: any) => ({
+    logged: state.reducer.logged
+})
+
+
+export default connect(mapStateToProps)(App);
