@@ -61,18 +61,31 @@ class MatchCard extends Component <Props, State>{
             <div className='card-item'>
                 { loaded ?
                     <>
-                    <div className="lane-position">
-                        <span>lane: {myUser.individualPosition}</span>
-                    </div>
                     <div className="champion-details">
-                        <span>{myUser.championName}</span>
-                        <span>lvl: {myUser.champLevel}</span>
+                        <img
+                            className='champion-image'
+                            src={`http://ddragon.leagueoflegends.com/cdn/11.24.1/img/champion/${ myUser.championName }.png`}
+                            alt={`${myUser.championName}`} 
+                        />
+                        <div className="champion-info">
+                            <span className='champion-lane'>lane: {myUser.individualPosition}</span>
+                            <span className='champion-name'>{myUser.championName}</span>
+                            <span className='champion-level'>lvl: {myUser.champLevel}</span>
+                        </div>
+                        <div className="kda">
+                            <span>{myUser.kills}/{myUser.deaths}/{myUser.assists}</span>
+                            <span>AMA: {AMA.toFixed(2)}</span>
+                        </div>
                     </div>
-                    <div className="kda">
-                        <span>kills: {myUser.kills}</span>
-                        <span>assistances: {myUser.assists}</span>
-                        <span>deaths: {myUser.deaths}</span>
-                        <span>AMA: {AMA.toFixed(2)}</span>
+                    <div className="champion-items">
+                        { myUser.item0 !== 0 && <img src={`https://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item0}.png`} alt='champion-item' />}
+                        { myUser.item1 !== 0 && <img src={`https://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item1}.png`} alt='champion-item' />}
+                        { myUser.item2 !== 0 && <img src={`https://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item2}.png`} alt='champion-item' />}
+                        { myUser.item3 !== 0 && <img src={`https://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item3}.png`} alt='champion-item' />}
+                        { myUser.item4 !== 0 && <img src={`https://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item4}.png`} alt='champion-item' />}
+                        { myUser.item5 !== 0 && <img src={`https://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item5}.png`} alt='champion-item' />}
+                        { myUser.item6 !== 0 && <img src={`https://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item6}.png`} alt='champion-item' />}
+
                     </div>
                     </>
                     : <span className='loading-card-item'>Carregando...</span> }
