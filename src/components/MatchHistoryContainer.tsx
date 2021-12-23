@@ -9,7 +9,6 @@ interface Props {
 class MatchHistoryCard extends Component <Props> {
     render() {
         const { historyMatches } = this.props;
-        // console.log(historyMatches)
         return (
             <div className='matcher-container'>
                 { historyMatches.map((historyMatch, index) => <MatchCard key={ index } matchId={ historyMatch } />) }

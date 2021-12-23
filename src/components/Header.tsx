@@ -10,9 +10,9 @@ class Header extends Component <Props>{
     render() {
         const { state } = this.props;
         return (
-            <div className='header-container'>
+            <header className='header-container'>
                 <h1>Seja Bem vindo: { state.name }</h1>
-            </div>
+            </header>
         )
     }
 }

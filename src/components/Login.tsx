@@ -14,7 +14,7 @@ interface State {
 }
 
 class Login extends Component <Props, State>{
-    constructor(props: any) {
+    constructor(props: Props) {
         super(props);
 
         this.state = {

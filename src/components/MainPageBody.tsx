@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import MatchHistoryCard from './MatchHistoryContainer';
+import MatchHistoryContainer from './MatchHistoryContainer';
 import addHistoryMatches from '../actions/addHistoryMatches'
 import key from '../key/key';
 
@@ -10,7 +10,6 @@ interface Props {
 }
 
 interface State {
-    historyMatchers: string[],
     loaded: boolean,
 }
 
@@ -19,7 +18,6 @@ class MainPageBody extends Component <Props, State>{
         super(props);
 
         this.state = {
-            historyMatchers: [],
             loaded: false,
         }
 
@@ -28,9 +26,8 @@ class MainPageBody extends Component <Props, State>{
 
     fetchMatchs() {
         const { userPuuid, historyMatches } = this.props;
-        // console.log(this.props);
         const url = `https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${userPuuid}/ids?start=0&count=20&api_key=${key}`;
-        return fetch(url)
+        fetch(url)
         .then((data) => data.json())
         .then((response) => {
             this.setState({ loaded: true })
@@ -46,7 +43,7 @@ class MainPageBody extends Component <Props, State>{
         const { loaded } = this.state;
         return (
             <div>
-                {!loaded ? <h1 className='loading-title'>Loading...</h1> : <MatchHistoryCard />}
+                {!loaded ? <h1 className='loading-title'>Loading...</h1> : <MatchHistoryContainer />}
             </div>
         )
     }

@@ -14,15 +14,15 @@ interface Props {
 class App extends Component<Props> {
     render() {
         const { logged } = this.props;
-        console.log(logged);
         return (
+            <>
                 <Switch>
                     <Route exact path='/home' component={ MainPage } />
-                    { logged === true && <Redirect to='/home' />}
                     <Route exact path='/login' component={Login}/>
-                    <Redirect to='/login' />
                     <Route path='*' component={NotFound} />
                 </Switch>
+                { logged ? <Redirect to='/home' /> : <Redirect to='/login' />}
+            </>
         )
     }
 }

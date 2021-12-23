@@ -2,25 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import key from '../key/key';
 
-interface Name {
-    name: string,
-}
 
 interface Props {
     matchId: string,
-    summonerName: Name,
+    summonerName: any,
 }
 
-interface Participants {
-    participants: any[],
-}
-
-interface MatchInfo {
-    info: Participants,
-}
 
 interface State {
-    matchInfo: MatchInfo | undefined,
+    matchInfo: any,
     loaded: boolean,
 }
 
@@ -53,12 +43,14 @@ class MatchCard extends Component <Props, State>{
         const { summonerName } = this.props;
         let myUser: any = undefined;
         let AMA: number = 0;
-        if(matchInfo) {
-            myUser = matchInfo.info.participants.find((participant) => participant.summonerName === summonerName.name);
-            AMA = ( parseInt(myUser.kills) + parseInt(myUser.assists) ) / parseInt(myUser.deaths)
+        let winOrDefeatBackgroundColor = '#9dfbfa';
+        if(loaded) {
+            myUser = matchInfo.info.participants.find((participant: any) => participant.summonerName === summonerName.name);
+            AMA = ( parseInt(myUser.kills) + parseInt(myUser.assists) ) / parseInt(myUser.deaths);
+            if (myUser.win) winOrDefeatBackgroundColor = '#F3485f';
         }
         return (
-            <div className='card-item'>
+            <div className='card-item' style={ { backgroundColor: winOrDefeatBackgroundColor} } >
                 { loaded ?
                     <>
                     <div className="champion-details">
@@ -68,7 +60,7 @@ class MatchCard extends Component <Props, State>{
                             alt={`${myUser.championName}`} 
                         />
                         <div className="champion-info">
-                            <span className='champion-lane'>lane: {myUser.individualPosition}</span>
+                            <span className='champion-lane'>Posição: {myUser.individualPosition}</span>
                             <span className='champion-name'>{myUser.championName}</span>
                             <span className='champion-level'>lvl: {myUser.champLevel}</span>
                         </div>
