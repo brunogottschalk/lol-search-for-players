@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import key from '../key/key';
 
 
@@ -47,7 +48,7 @@ class MatchCard extends Component <Props, State>{
         if(loaded) {
             myUser = matchInfo.info.participants.find((participant: any) => participant.summonerName === summonerName.name);
             AMA = ( parseInt(myUser.kills) + parseInt(myUser.assists) ) / parseInt(myUser.deaths);
-            if (myUser.win) winOrDefeatBackgroundColor = '#F3485f';
+            if (!myUser.win) winOrDefeatBackgroundColor = '#F3485f';
         }
         return (
             <div className='card-item' style={ { backgroundColor: winOrDefeatBackgroundColor} } >
@@ -68,6 +69,9 @@ class MatchCard extends Component <Props, State>{
                             <span>{myUser.kills}/{myUser.deaths}/{myUser.assists}</span>
                             <span>AMA: {AMA.toFixed(2)}</span>
                         </div>
+                        <div className="more-info">
+                            <Link to={`/home/${matchInfo.metadata.matchId}`}><button>more-info</button></Link>
+                        </div>
                     </div>
                     <div className="champion-items">
                         { myUser.item0 !== 0 && <img src={`https://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item0}.png`} alt='champion-item' />}
@@ -80,7 +84,7 @@ class MatchCard extends Component <Props, State>{
 
                     </div>
                     </>
-                    : <span className='loading-card-item'>Carregando...</span> }
+                    : <div className="champion-details"><span className='loading-card-item'>Carregando...</span></div> }
             </div>
         );
     }

@@ -35,7 +35,7 @@ class UserInfos extends Component <Props, State>{
         const url = `https://br1.api.riotgames.com/lol/league/v4/entries/by-summoner/${ userInfo.id }?api_key=${key}`
         fetch(url)
         .then((data) => data.json())
-        .then((response) => this.setState({ accountStats: response[0] }, () => this.setState({ loaded: true })))
+        .then((response) => this.setState({ accountStats: response.find((item: any) => item.queueType === "RANKED_SOLO_5x5") }, () => this.setState({ loaded: true })))
     }
 
     render() {

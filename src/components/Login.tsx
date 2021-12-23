@@ -23,11 +23,12 @@ class Login extends Component <Props, State>{
         }
 
         this.handler = this.handler.bind(this);
+        this.fetchUser = this.fetchUser.bind(this);
     }
 
-    fetchUser() {
+    fetchUser(event: any) {
+        event.preventDefault();
         this.setState({ loading: true }, () => {
-            console.log(this.props);
             const { inputValue } = this.state;
             const url = `https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${inputValue}?api_key=${key}`;
             fetch(url)
@@ -52,14 +53,13 @@ class Login extends Component <Props, State>{
             <div className="login-container">
                 {
                 !loading ?
-                    <form className='login-form-container'>
-                        <h1 className='login-title'>Login</h1>
+                    <form onSubmit={ this.fetchUser } className='login-form-container'>
+                        <h1 className='login-title'>League of Legends - consulta de histórico</h1>
                         <input id='login-input'type="text" name='inputValue' placeholder='Insira seu Username:' onChange={ this.handler }/>
                         <button
                             className='login-button'
                             disabled={ inputValue.length === 0 ? true: false }
-                            type='button'
-                            onClick={ () => this.fetchUser() }
+                            type='submit'
                         >
                             Buscar
                         </button>

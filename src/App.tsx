@@ -6,6 +6,7 @@ import './styles/login-style.css';
 import MainPage from './components/MainPage';
 import Login from './components/Login';
 import NotFound from './components/NotFound';
+import MoreInfo from './components/MoreInfo';
 
 interface Props {
     logged: boolean,
@@ -19,6 +20,7 @@ class App extends Component<Props> {
                 <Switch>
                     <Route exact path='/home' component={ MainPage } />
                     <Route exact path='/login' component={Login}/>
+                    <Route path='/home/:id' render={ props => <MoreInfo props={ props } />} />
                     <Route path='*' component={NotFound} />
                 </Switch>
                 { logged ? <Redirect to='/home' /> : <Redirect to='/login' />}

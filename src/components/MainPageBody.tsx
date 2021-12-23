@@ -43,7 +43,7 @@ class MainPageBody extends Component <Props, State>{
         const { loaded } = this.state;
         return (
             <div>
-                {!loaded ? <h1 className='loading-title'>Loading...</h1> : <MatchHistoryContainer />}
+                {!loaded ? <div className='matcher-container'><h1 className='loading-title'>Carregando...</h1></div> : <MatchHistoryContainer />}
             </div>
         )
     }
