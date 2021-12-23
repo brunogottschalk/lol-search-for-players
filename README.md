@@ -1,1 +1,1 @@
-Fetch for users at Riot Api and search for all his games.
+Fetch for users at Riot Api and search for all their games.
