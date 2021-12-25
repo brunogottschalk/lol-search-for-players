@@ -30,8 +30,8 @@ class MainPageBody extends Component <Props, State>{
         fetch(url)
         .then((data) => data.json())
         .then((response) => {
-            this.setState({ loaded: true })
-            return historyMatches(response);
+            historyMatches(response);
+            this.setState({ loaded: true });
         });
     }
 
@@ -42,9 +42,9 @@ class MainPageBody extends Component <Props, State>{
     render() {
         const { loaded } = this.state;
         return (
-            <div>
+            <>
                 {!loaded ? <div className='matcher-container'><h1 className='loading-title'>Carregando...</h1></div> : <MatchHistoryContainer />}
-            </div>
+            </>
         )
     }
 }

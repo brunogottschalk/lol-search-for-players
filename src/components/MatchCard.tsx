@@ -46,14 +46,15 @@ class MatchCard extends Component <Props, State>{
         let AMA: number = 0;
         let winOrDefeatBackgroundColor = '#9dfbfa';
         if(loaded) {
-            myUser = matchInfo.info.participants.find((participant: any) => participant.summonerName === summonerName.name);
-            AMA = ( parseInt(myUser.kills) + parseInt(myUser.assists) ) / parseInt(myUser.deaths);
+            myUser = matchInfo.info.participants.find((participant: any) => participant.summonerName === summonerName);
+            AMA = ( parseInt(myUser.kills ? myUser.kills : 0 ) + parseInt(myUser.assists) ) / parseInt(myUser.deaths);
             if (!myUser.win) winOrDefeatBackgroundColor = '#F3485f';
+            
         }
         return (
             <div className='card-item' style={ { backgroundColor: winOrDefeatBackgroundColor} } >
                 { loaded ?
-                    <>
+                    <Link className='link' to={`/home/${matchInfo.metadata.matchId}`}><>
                     <div className="champion-details">
                         <img
                             className='champion-image'
@@ -69,9 +70,6 @@ class MatchCard extends Component <Props, State>{
                             <span>{myUser.kills}/{myUser.deaths}/{myUser.assists}</span>
                             <span>AMA: {AMA.toFixed(2)}</span>
                         </div>
-                        <div className="more-info">
-                            <Link to={`/home/${matchInfo.metadata.matchId}`}><button>more-info</button></Link>
-                        </div>
                     </div>
                     <div className="champion-items">
                         { myUser.item0 !== 0 && <img src={`https://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item0}.png`} alt='champion-item' />}
@@ -81,9 +79,8 @@ class MatchCard extends Component <Props, State>{
                         { myUser.item4 !== 0 && <img src={`https://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item4}.png`} alt='champion-item' />}
                         { myUser.item5 !== 0 && <img src={`https://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item5}.png`} alt='champion-item' />}
                         { myUser.item6 !== 0 && <img src={`https://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item6}.png`} alt='champion-item' />}
-
                     </div>
-                    </>
+                    </></Link>
                     : <div className="champion-details"><span className='loading-card-item'>Carregando...</span></div> }
             </div>
         );
@@ -91,7 +88,7 @@ class MatchCard extends Component <Props, State>{
 }
 
 const mapStateToProps = (state: any) => ({
-    summonerName: state.reducer.summonerApi,
+    summonerName: state.reducer.summonerApi.name,
 })
 
 export default connect(mapStateToProps)(MatchCard);

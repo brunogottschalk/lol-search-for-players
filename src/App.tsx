@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import './styles/main-page-style.css';
 import './styles/login-style.css';
+import './styles/more-info-page-style.css';
 import MainPage from './components/MainPage';
 import Login from './components/Login';
 import NotFound from './components/NotFound';
@@ -32,6 +33,5 @@ class App extends Component<Props> {
 const mapStateToProps = (state: any) => ({
     logged: state.reducer.logged
 })
-
 
 export default connect(mapStateToProps)(App);

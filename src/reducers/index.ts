@@ -34,7 +34,16 @@ function reducer(state: INITIAL_STATE_INTERFACE = INITIAL_STATE, action: actionI
             return ({ ...state, summonerApi, logged })
         }
         case 'ADD_HISTORY_MATCHES': {
+            state.historyMatches = [];
             return ({ ...state, historyMatches: action.value })
+        }
+        case 'CHANGE_LOGIN_STATUS': {
+            const { logged } = action;
+            return ({ ...INITIAL_STATE, logged })
+        }
+        case 'REDICECT_SUMMONER': {
+            const { summonerApi } = action;
+            return ({ ...INITIAL_STATE, summonerApi })
         }
         default: return state;
     }
