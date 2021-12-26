@@ -1,20 +1,35 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import Header from './Header';
 import MainPageBody from './MainPageBody';
 import UserInfos from './UserInfos';
 import Footer from './Footer';
 
-class MainPage extends Component {
+interface Props {
+    logged: boolean,
+}
+
+class MainPage extends Component <Props>{
     render() {
+        const { logged } = this.props;
         return (
             <div className="main-page-container">
-                <Header />
-                <UserInfos />
-                <MainPageBody />
-                <Footer />
+                { !logged ? <Redirect to='/login' /> :
+                <>
+                    <Header />
+                    <UserInfos />
+                    <MainPageBody />
+                    <Footer />
+                </>
+                }
             </div>
         )
     }
 }
 
-export default MainPage;
+const mapStateToProps = (state: any) => ({
+    logged: state.reducer.logged,
+})
+
+export default connect(mapStateToProps)(MainPage);
