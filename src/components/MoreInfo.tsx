@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import key from '../key/key';
+import key from '../../key/key';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import addSummoner from '../actions/addSummoner';
