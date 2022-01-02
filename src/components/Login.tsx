@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import addSummoners from '../actions/addSummoner';
 import { SummonerApiInterface } from '../reducers'
-import key from '../../key/key';
+import key from 'key';
 
 interface Props {
     summonerApi: (value: SummonerApiInterface) => any,

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MatchHistoryContainer from './MatchHistoryContainer';
 import addHistoryMatches from '../actions/addHistoryMatches'
-import key from '../../key/key';
+import key from 'key';
 
 interface Props {
     userPuuid: string,

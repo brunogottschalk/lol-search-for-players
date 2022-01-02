@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-, "key/key.ts"  ]
+, "node_modules/key/key.ts"  ]
 }

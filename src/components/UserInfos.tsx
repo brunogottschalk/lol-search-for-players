@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SummonerApiInterface } from '../reducers';
-import key from '../key/key';
+import key from 'key';
 import bronzeEmblem from '../images/Emblem_BRONZE.png';
 import challengerEmblem from '../images/Emblem_CHALLENGER.png';
 import diamondEmblem from '../images/Emblem_DIAMOND.png';

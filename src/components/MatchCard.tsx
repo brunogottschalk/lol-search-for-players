@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import key from '../../key/key';
+import key from 'key';
 
 
 interface Props {
