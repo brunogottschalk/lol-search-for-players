@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import MatchHistoryContainer from './MatchHistoryContainer';
 import addHistoryMatches from '../actions/addHistoryMatches'
 
-let key = process.env.REACT_APP_API_KEY;
-
 interface Props {
     userPuuid: string,
     historyMatches: (value: string[]) => void,
@@ -26,6 +24,7 @@ class MainPageBody extends Component <Props, State>{
     }
 
     fetchMatchs() {
+        let key = process.env.REACT_APP_API_KEY;
         const { userPuuid, historyMatches } = this.props;
         const url = `https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/${userPuuid}/ids?start=0&count=20&api_key=${key}`;
         fetch(url)

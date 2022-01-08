@@ -2,13 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-let key = process.env.REACT_APP_API_KEY;
-
 interface Props {
     matchId: string,
     summonerName: any,
 }
-//
 
 interface State {
     matchInfo: any,
@@ -28,6 +25,7 @@ class MatchCard extends Component <Props, State>{
     }
 
     fetchMatch() {
+        const key = process.env.REACT_APP_API_KEY;
         const { matchId } = this.props;
         const url = `https://americas.api.riotgames.com/lol/match/v5/matches/${matchId}?api_key=${key}`;
         fetch(url)

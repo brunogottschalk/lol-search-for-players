@@ -9,8 +9,6 @@ interface Props {
     summonerApi: (value:any) => any;
 }
 
-let key = process.env.REACT_APP_API_KEY
-
 interface State {
     loaded: boolean,
     matchInfo: any,
@@ -32,6 +30,7 @@ class MoreInfo extends Component <Props, State>{
     }
 
     fetchMatch() {
+        const key = process.env.REACT_APP_API_KEY
         const { props: { match: { params: { id } }} } = this.props;
         const url = `https://americas.api.riotgames.com/lol/match/v5/matches/${id}?api_key=${key}`
         fetch(url)
@@ -44,16 +43,17 @@ class MoreInfo extends Component <Props, State>{
     }
 
     redirectToHome(summonerName: string) {
-            const url = `https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}?api_key=${key}`;
-            this.setState({ fetchComplete: false }, () => {
-                fetch(url)
-                .then((response) => response.json())
-                .then((data: SummonerApiInterface) => {
-                    this.props.summonerApi(data);
-                    this.setState({ fetchComplete: true })
-                })
-                .catch((error) => console.log(error));
+        const key = process.env.REACT_APP_API_KEY
+        const url = `https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}?api_key=${key}`;
+        this.setState({ fetchComplete: false }, () => {
+            fetch(url)
+            .then((response) => response.json())
+            .then((data: SummonerApiInterface) => {
+                this.props.summonerApi(data);
+                this.setState({ fetchComplete: true })
             })
+            .catch((error) => console.log(error));
+        })
     }
 
     render() {

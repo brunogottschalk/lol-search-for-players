@@ -11,10 +11,6 @@ import masterEmblem from '../images/Emblem_MASTER.png';
 import platinumEmblem from '../images/Emblem_PLATINUM.png';
 import silverEmblem from '../images/Emblem_SILVER.png';
 
-let key = process.env.REACT_APP_API_KEY;
-
-console.log(key);
-
 interface Props {
     userInfo: SummonerApiInterface,
 }
@@ -35,6 +31,7 @@ class UserInfos extends Component <Props, State>{
 
     componentDidMount() {
         const { userInfo } = this.props;
+        const key = process.env.REACT_APP_API_KEY;
         const url = `https://br1.api.riotgames.com/lol/league/v4/entries/by-summoner/${ userInfo.id }?api_key=${key}`
         fetch(url)
         .then((data) => data.json())
