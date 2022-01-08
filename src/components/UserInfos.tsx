@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SummonerApiInterface } from '../reducers';
-import key from 'key';
 import bronzeEmblem from '../images/Emblem_BRONZE.png';
 import challengerEmblem from '../images/Emblem_CHALLENGER.png';
 import diamondEmblem from '../images/Emblem_DIAMOND.png';
@@ -11,6 +10,10 @@ import ironEmblem from '../images/Emblem_IRON.png';
 import masterEmblem from '../images/Emblem_MASTER.png';
 import platinumEmblem from '../images/Emblem_PLATINUM.png';
 import silverEmblem from '../images/Emblem_SILVER.png';
+
+let key = process.env.REACT_APP_API_KEY;
+
+console.log(key);
 
 interface Props {
     userInfo: SummonerApiInterface,
@@ -35,7 +38,7 @@ class UserInfos extends Component <Props, State>{
         const url = `https://br1.api.riotgames.com/lol/league/v4/entries/by-summoner/${ userInfo.id }?api_key=${key}`
         fetch(url)
         .then((data) => data.json())
-        .then((response) => this.setState({ accountStats: response.find((item: any) => item.queueType === "RANKED_SOLO_5x5") }, () => this.setState({ loaded: true })))
+        .then((response) => console.log(response))
     }
 
     render() {

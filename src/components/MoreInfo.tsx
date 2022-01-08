@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import key from 'key';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import addSummoner from '../actions/addSummoner';
@@ -9,6 +8,8 @@ interface Props {
     props: any,
     summonerApi: (value:any) => any;
 }
+
+let key = process.env.REACT_APP_API_KEY
 
 interface State {
     loaded: boolean,

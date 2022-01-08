@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MatchHistoryContainer from './MatchHistoryContainer';
 import addHistoryMatches from '../actions/addHistoryMatches'
-import key from 'key';
+
+let key = process.env.REACT_APP_API_KEY;
 
 interface Props {
     userPuuid: string,

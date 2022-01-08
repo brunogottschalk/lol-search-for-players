@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import key from 'key';
 
+let key = process.env.REACT_APP_API_KEY;
 
 interface Props {
     matchId: string,

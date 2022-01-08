@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import addSummoners from '../actions/addSummoner';
 import { SummonerApiInterface } from '../reducers'
-import key from 'key';
+
+const key = process.env.REACT_APP_API_KEY;
+
+console.log(key);
 
 interface Props {
     summonerApi: (value: SummonerApiInterface) => any,
@@ -28,6 +31,8 @@ class Login extends Component <Props, State>{
 
     fetchUser(event: any) {
         event.preventDefault();
+
+        console.log(key);
         this.setState({ loading: true }, () => {
             const { inputValue } = this.state;
             const url = `https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${inputValue}?api_key=${key}`;
