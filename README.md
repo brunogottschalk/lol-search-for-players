@@ -6,3 +6,5 @@
 <p>An example of how the application is currently working can be found below in this readme.</p>
 
 <img src="./readmeExampleGif/readmeGif.gif" />
+
+<strong>You can try the application here: https://lol-search-for-players.netlify.app</strong>
