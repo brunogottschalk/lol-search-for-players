@@ -24,7 +24,7 @@ class Login extends Component <Props, State>{
         this.handler = this.handler.bind(this);
         this.fetchUser = this.fetchUser.bind(this);
     }
-
+    
     fetchUser(event: any) {
         event.preventDefault();
         const key = process.env.REACT_APP_API_KEY;
@@ -46,7 +46,7 @@ class Login extends Component <Props, State>{
             inputValue: value
         });
     }
-
+ 
     render() {
         const { inputValue, loading } = this.state;
         return (
