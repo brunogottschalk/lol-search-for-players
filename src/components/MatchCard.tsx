@@ -56,7 +56,7 @@ class MatchCard extends Component <Props, State>{
                     <div className="champion-details">
                         <img
                             className='champion-image'
-                            src={`http://ddragon.leagueoflegends.com/cdn/11.24.1/img/champion/${ myUser.championName }.png`}
+                            src={`https://opgg-static.akamaized.net/images/lol/champion/${ myUser.championName }.png?image=c_scale,q_auto,w_140&v=1637122822`}
                             alt={`${myUser.championName}`} 
                         />
                         <div className="champion-info">
@@ -70,13 +70,13 @@ class MatchCard extends Component <Props, State>{
                         </div>
                     </div>
                     <div className="champion-items">
-                        { myUser.item0 !== 0 && <img src={`http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item0}.png`} alt='champion-item' />}
-                        { myUser.item1 !== 0 && <img src={`http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item1}.png`} alt='champion-item' />}
-                        { myUser.item2 !== 0 && <img src={`http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item2}.png`} alt='champion-item' />}
-                        { myUser.item3 !== 0 && <img src={`http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item3}.png`} alt='champion-item' />}
-                        { myUser.item4 !== 0 && <img src={`http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item4}.png`} alt='champion-item' />}
-                        { myUser.item5 !== 0 && <img src={`http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item5}.png`} alt='champion-item' />}
-                        { myUser.item6 !== 0 && <img src={`http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item6}.png`} alt='champion-item' />}
+                        { myUser.item0 !== 0 && <img src={`https://opgg-static.akamaized.net/images/lol/item/${myUser.item0}.png?image=q_auto:best&v=1637122822`} alt='champion-item' />}
+                        { myUser.item1 !== 0 && <img src={`https://opgg-static.akamaized.net/images/lol/item/${myUser.item1}.png?image=q_auto:best&v=1637122822`} alt='champion-item' />}
+                        { myUser.item2 !== 0 && <img src={`https://opgg-static.akamaized.net/images/lol/item/${myUser.item2}.png?image=q_auto:best&v=1637122822`} alt='champion-item' />}
+                        { myUser.item3 !== 0 && <img src={`https://opgg-static.akamaized.net/images/lol/item/${myUser.item3}.png?image=q_auto:best&v=1637122822`} alt='champion-item' />}
+                        { myUser.item4 !== 0 && <img src={`https://opgg-static.akamaized.net/images/lol/item/${myUser.item4}.png?image=q_auto:best&v=1637122822`} alt='champion-item' />}
+                        { myUser.item5 !== 0 && <img src={`https://opgg-static.akamaized.net/images/lol/item/${myUser.item5}.png?image=q_auto:best&v=1637122822`} alt='champion-item' />}
+                        { myUser.item6 !== 0 && <img src={`https://opgg-static.akamaized.net/images/lol/item/${myUser.item6}.png?image=q_auto:best&v=1637122822`} alt='champion-item' />}
                     </div>
                     </></Link>
                     : <div className="champion-details"><span className='loading-card-item'>Carregando...</span></div> }

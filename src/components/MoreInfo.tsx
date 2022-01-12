@@ -72,7 +72,7 @@ class MoreInfo extends Component <Props, State>{
                                     <div className="champion-details">
                                     <img
                                             className='champion-image'
-                                            src={`http://ddragon.leagueoflegends.com/cdn/11.24.1/img/champion/${ participant.championName }.png`}
+                                            src={`https://opgg-static.akamaized.net/images/lol/champion/${ participant.championName }.png?image=c_scale,q_auto,w_140&v=1637122822`}
                                             alt={`${participant.championName}`} 
                                     />
                                     <div className="champion-info">
@@ -86,13 +86,13 @@ class MoreInfo extends Component <Props, State>{
                                     </div>
                                     </div>
                                     <div className="more-info-champion-items">
-                                        { participant.item0 !== 0 && <img src={`http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${participant.item0}.png`} alt='champion-item' />}
-                                        { participant.item1 !== 0 && <img src={`http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${participant.item1}.png`} alt='champion-item' />}
-                                        { participant.item2 !== 0 && <img src={`http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${participant.item2}.png`} alt='champion-item' />}
-                                        { participant.item3 !== 0 && <img src={`http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${participant.item3}.png`} alt='champion-item' />}
-                                        { participant.item4 !== 0 && <img src={`http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${participant.item4}.png`} alt='champion-item' />}
-                                        { participant.item5 !== 0 && <img src={`http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${participant.item5}.png`} alt='champion-item' />}
-                                        { participant.item6 !== 0 && <img src={`http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${participant.item6}.png`} alt='champion-item' />}
+                                        { participant.item0 !== 0 && <img src={`https://opgg-static.akamaized.net/images/lol/item/${participant.item0}.png?image=q_auto:best&v=1637122822`} alt='champion-item' />}
+                                        { participant.item1 !== 0 && <img src={`https://opgg-static.akamaized.net/images/lol/item/${participant.item1}.png?image=q_auto:best&v=1637122822`} alt='champion-item' />}
+                                        { participant.item2 !== 0 && <img src={`https://opgg-static.akamaized.net/images/lol/item/${participant.item2}.png?image=q_auto:best&v=1637122822`} alt='champion-item' />}
+                                        { participant.item3 !== 0 && <img src={`https://opgg-static.akamaized.net/images/lol/item/${participant.item3}.png?image=q_auto:best&v=1637122822`} alt='champion-item' />}
+                                        { participant.item4 !== 0 && <img src={`https://opgg-static.akamaized.net/images/lol/item/${participant.item4}.png?image=q_auto:best&v=1637122822`} alt='champion-item' />}
+                                        { participant.item5 !== 0 && <img src={`https://opgg-static.akamaized.net/images/lol/item/${participant.item5}.png?image=q_auto:best&v=1637122822`} alt='champion-item' />}
+                                        { participant.item6 !== 0 && <img src={`https://opgg-static.akamaized.net/images/lol/item/${participant.item6}.png?image=q_auto:best&v=1637122822`} alt='champion-item' />}
                                     </div>
                                 </>}
                             </div>
