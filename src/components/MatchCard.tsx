@@ -70,13 +70,13 @@ class MatchCard extends Component <Props, State>{
                         </div>
                     </div>
                     <div className="champion-items">
-                        { myUser.item0 !== 0 && <img src={`https://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item0}.png`} alt='champion-item' />}
-                        { myUser.item1 !== 0 && <img src={`https://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item1}.png`} alt='champion-item' />}
-                        { myUser.item2 !== 0 && <img src={`https://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item2}.png`} alt='champion-item' />}
-                        { myUser.item3 !== 0 && <img src={`https://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item3}.png`} alt='champion-item' />}
-                        { myUser.item4 !== 0 && <img src={`https://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item4}.png`} alt='champion-item' />}
-                        { myUser.item5 !== 0 && <img src={`https://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item5}.png`} alt='champion-item' />}
-                        { myUser.item6 !== 0 && <img src={`https://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item6}.png`} alt='champion-item' />}
+                        { myUser.item0 !== 0 && <img src={`http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item0}.png`} alt='champion-item' />}
+                        { myUser.item1 !== 0 && <img src={`http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item1}.png`} alt='champion-item' />}
+                        { myUser.item2 !== 0 && <img src={`http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item2}.png`} alt='champion-item' />}
+                        { myUser.item3 !== 0 && <img src={`http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item3}.png`} alt='champion-item' />}
+                        { myUser.item4 !== 0 && <img src={`http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item4}.png`} alt='champion-item' />}
+                        { myUser.item5 !== 0 && <img src={`http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item5}.png`} alt='champion-item' />}
+                        { myUser.item6 !== 0 && <img src={`http://ddragon.leagueoflegends.com/cdn/11.24.1/img/item/${myUser.item6}.png`} alt='champion-item' />}
                     </div>
                     </></Link>
                     : <div className="champion-details"><span className='loading-card-item'>Carregando...</span></div> }
