@@ -7,9 +7,10 @@ import { Link } from 'react-router-dom';
 interface Props {
     state: SummonerApiInterface,
     logged: (value: boolean) => any,
+    profileIcon: string,
 }
 
-class Header extends Component <Props>{
+class Header extends Component<Props>{
     constructor(props: Props) {
         super(props);
         this.changeStatus = this.changeStatus.bind(this);
@@ -21,13 +22,14 @@ class Header extends Component <Props>{
     }
 
     render() {
-        const { state } = this.props;
+        const { state, profileIcon } = this.props;
         return (
             <header className='header-container'>
-                <div className="header-title">
-                    <h1>Seja Bem vindo: { state.name }</h1>
-                </div>
-                <Link to='/login'><button className='header-button' onClick={ this.changeStatus } type='submit'>Buscar por outra conta</button></Link>
+                <img className="profile-image" src={`https://opgg-static.akamaized.net/images/profile_icons/profileIcon${profileIcon}.jpg?image=q_auto:best&v=1518361200`} alt="profile" />
+
+                    <h1 className="header-title">{state.name}</h1>
+
+                <Link to='/login'><button className='header-button' onClick={this.changeStatus} type='submit'>Buscar por outra conta</button></Link>
             </header>
         )
     }
@@ -35,6 +37,7 @@ class Header extends Component <Props>{
 
 const mapStateToProps = (state: any) => ({
     state: state.reducer.summonerApi,
+    profileIcon: state.reducer.summonerApi.profileIconId,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

@@ -19,12 +19,12 @@ class App extends Component<Props> {
         return (
             <>
                 <Switch>
-                    <Route exact path='/home' component={ MainPage } />
-                    <Route exact path='/login' component={Login}/>
-                    <Route path='/home/:id' render={ props => <MoreInfo props={ props } />} />
+                    <Route exact path='/home' component={MainPage} />
+                    <Route exact path='/login' component={Login} />
+                    <Route path='/home/:id' component={MoreInfo} />
                     <Route path='*' component={NotFound} />
                 </Switch>
-                { logged ? <Redirect to='/home' /> : <Redirect to='/login' />}
+                {logged ? <Redirect to='/home' /> : <Redirect to='/login' />}
             </>
         )
     }
