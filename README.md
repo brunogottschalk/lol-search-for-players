@@ -1,4 +1,3 @@
-<h1>This Project isn't completely finished</h1>
 <h4>This application was made using ReactJS with Typescript, Redux and also some features from the React Router Dom library</h4>
 
 <p>The core function of this application is to search for matches played by any league of legends player</p>
